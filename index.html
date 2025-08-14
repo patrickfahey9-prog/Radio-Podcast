@@ -18,19 +18,10 @@
             --accent-color: #1DB954;
             --error-color: #e53e3e;
         }
-
-        /* Basic Setup */
-        html {
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-
+        html { box-sizing: border-box; font-size: 16px; }
+        *, *:before, *:after { box-sizing: inherit; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             background-color: var(--primary-bg);
             color: var(--primary-text);
@@ -39,31 +30,20 @@
             align-items: flex-start;
             min-height: 100vh;
             padding: 1rem;
-            -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+            -webkit-tap-highlight-color: transparent;
         }
-
-        /* Main App Container */
         .app-container {
             width: 100%;
             max-width: 800px;
             display: grid;
-            grid-template-areas:
-                "player"
-                "management"
-                "library";
+            grid-template-areas: "player" "management" "library";
             gap: 1.5rem;
             padding: 1rem;
             background-color: var(--secondary-bg);
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
-
-        /* General UI Elements */
-        h1, h2 {
-            margin: 0 0 1rem 0;
-            color: var(--primary-text);
-        }
-        
+        h1, h2 { margin: 0 0 1rem 0; color: var(--primary-text); }
         button, input[type="text"], select {
             border-radius: 5px;
             border: 1px solid var(--tertiary-bg);
@@ -73,88 +53,26 @@
             font-size: 1rem;
             transition: all 0.2s ease;
         }
-
-        button {
-            cursor: pointer;
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            font-weight: bold;
-        }
-        
-        button:hover, button:focus {
-            filter: brightness(1.1);
-        }
-        
-        button.secondary {
-            background-color: var(--tertiary-bg);
-            border-color: var(--secondary-text);
-        }
-        
-        button.danger {
-            background-color: var(--error-color);
-            border-color: var(--error-color);
-        }
-
-        input[type="text"]:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px var(--accent-color);
-        }
-        
+        button { cursor: pointer; background-color: var(--accent-color); border-color: var(--accent-color); font-weight: bold; }
+        button:hover, button:focus { filter: brightness(1.1); }
+        button.secondary { background-color: var(--tertiary-bg); border-color: var(--secondary-text); }
+        button.danger { background-color: var(--error-color); border-color: var(--error-color); }
+        input[type="text"]:focus, select:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-color); }
         .hidden { display: none !important; }
-
-        /* Player Section */
         .radio-player { grid-area: player; text-align: center; }
-        .now-playing { margin-bottom: 1rem; }
+        .now-playing { margin-bottom: 1rem; min-height: 60px; }
         #now-playing-title { font-size: 1.2rem; font-weight: bold; margin: 0; }
         #now-playing-podcast, #now-playing-station { font-size: 0.9rem; color: var(--secondary-text); margin: 0.25rem 0; }
-        
-        .progress-container {
-            width: 100%;
-            background-color: var(--tertiary-bg);
-            border-radius: 5px;
-            cursor: pointer;
-            height: 8px;
-            margin: 1rem 0;
-        }
-        #progress-bar {
-            width: 0%;
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 5px;
-        }
-        
+        .progress-container { width: 100%; background-color: var(--tertiary-bg); border-radius: 5px; cursor: pointer; height: 8px; margin: 1rem 0; }
+        #progress-bar { width: 0%; height: 100%; background-color: var(--accent-color); border-radius: 5px; }
         .player-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; }
-        .player-controls button {
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            border: none;
-        }
-        #play-pause-button {
-            width: 70px;
-            height: 70px;
-            font-size: 2.5rem;
-        }
-
-        /* Management Section */
+        .player-controls button { font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; padding: 0; border: none; }
+        #play-pause-button { width: 70px; height: 70px; font-size: 2.5rem; }
+        .sleep-timer-controls { margin-top: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; }
+        .sleep-timer-controls label { color: var(--secondary-text); }
         .management { grid-area: management; }
         .management-tabs { display: flex; border-bottom: 1px solid var(--tertiary-bg); margin-bottom: 1rem; }
-        .tab-button {
-            flex: 1;
-            padding: 0.75rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            color: var(--secondary-text);
-            border-bottom: 3px solid transparent;
-        }
+        .tab-button { flex: 1; padding: 0.75rem; background: none; border: none; cursor: pointer; font-size: 1rem; color: var(--secondary-text); border-bottom: 3px solid transparent; }
         .tab-button.active { color: var(--primary-text); border-bottom-color: var(--accent-color); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
@@ -162,30 +80,9 @@
         .form-group label { font-weight: bold; color: var(--secondary-text); }
         .input-group { display: flex; gap: 0.5rem; }
         .input-group input { flex-grow: 1; }
-        #log-messages {
-            background-color: var(--primary-bg);
-            border-radius: 5px;
-            padding: 0.75rem;
-            margin-top: 1rem;
-            max-height: 150px;
-            overflow-y: auto;
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-        }
-        
-        /* Station Management List */
+        #log-messages { background-color: var(--primary-bg); border-radius: 5px; padding: 0.75rem; margin-top: 1rem; max-height: 150px; overflow-y: auto; font-size: 0.9rem; color: var(--secondary-text); }
         #station-list { list-style: none; padding: 0; margin: 0; }
-        #station-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem;
-            background-color: var(--tertiary-bg);
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Library Section */
+        #station-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background-color: var(--tertiary-bg); border-radius: 5px; margin-bottom: 0.5rem; }
         .content-library { grid-area: library; }
         .library-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
         .library-table-container { max-height: 400px; overflow-y: auto; }
@@ -193,13 +90,11 @@
         th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--tertiary-bg); }
         th { color: var(--secondary-text); }
         td:last-child { text-align: right; }
-
-        /* Responsive Design */
         @media (max-width: 600px) {
             body { padding: 0; }
-            .app-container { border-radius: 0; padding: 0.5rem; }
+            .app-container { border-radius: 0; padding: 1rem 0.5rem; }
             .input-group { flex-direction: column; }
-            th:nth-child(2), td:nth-child(2) { display: none; } /* Hide Podcast name on small screens */
+            th:nth-child(2), td:nth-child(2) { display: none; }
         }
     </style>
 </head>
@@ -220,6 +115,18 @@
                 <button id="play-pause-button" title="Play/Pause">▶</button>
                 <button id="next-button" title="Next (Random)">⏭</button>
             </div>
+            <div class="sleep-timer-controls">
+                <label for="sleep-timer">☾ Sleep Timer:</label>
+                <select id="sleep-timer">
+                    <option value="0">Off</option>
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="30">30 minutes</option>
+                    <option value="45">45 minutes</option>
+                    <option value="60">60 minutes</option>
+                </select>
+            </div>
         </section>
 
         <section class="management">
@@ -227,14 +134,13 @@
                 <button class="tab-button active" onclick="showTab('add-content')">Add Content</button>
                 <button class="tab-button" onclick="showTab('manage-stations')">Manage Stations</button>
             </div>
-            
             <div id="add-content" class="tab-content active">
                 <div class="form-group">
                     <label for="station-add-selector">Add to Station:</label>
                     <select id="station-add-selector"></select>
                 </div>
                 <div class="form-group">
-                    <label for="rss-url-input">Add Podcast via RSS Feed URL (incl. Patreon):</label>
+                    <label for="rss-url-input">Add Podcast via RSS Feed URL:</label>
                     <div class="input-group">
                         <input type="text" id="rss-url-input" placeholder="https://feeds.example.com/podcast">
                         <button id="add-rss-button">Add Feed</button>
@@ -246,7 +152,6 @@
                 </div>
                  <div id="log-messages">Status messages will appear here...</div>
             </div>
-            
             <div id="manage-stations" class="tab-content">
                 <div class="form-group">
                     <label for="new-station-name">Create New Station:</label>
@@ -273,8 +178,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
@@ -286,11 +190,10 @@
     document.addEventListener('DOMContentLoaded', () => {
         // --- STATE MANAGEMENT ---
         let library = [];
-        let stations = {
-            'all': { name: 'All Content', episodes: [] }
-        };
+        let stations = { 'all': { name: 'All Content', episodes: [] } };
         let currentStationId = 'all';
         let currentEpisode = null;
+        let sleepTimerId = null;
 
         // --- DOM ELEMENTS ---
         const audio = document.getElementById('audio-player');
@@ -299,6 +202,7 @@
         const prevBtn = document.getElementById('prev-button');
         const progressBar = document.getElementById('progress-bar');
         const progressContainer = document.getElementById('progress-container');
+        const sleepTimerSelect = document.getElementById('sleep-timer');
         
         const nowPlayingTitle = document.getElementById('now-playing-title');
         const nowPlayingPodcast = document.getElementById('now-playing-podcast');
@@ -318,7 +222,6 @@
         const libraryTableBody = document.querySelector('#library-table tbody');
 
         // --- CORE AUDIO & PLAYBACK LOGIC ---
-
         const playRandomEpisode = () => {
             logMessage("Selecting new random episode...");
             const stationEpisodes = stations[currentStationId]?.episodes || [];
@@ -338,13 +241,8 @@
                 
                 const playPromise = audio.play();
                 if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        playPauseBtn.textContent = '⏸';
-                        logMessage(`Playing: ${currentEpisode.title}`);
-                    }).catch(error => {
+                    playPromise.then(() => {}).catch(error => {
                         logMessage(`Playback error. User interaction may be needed.`, "error");
-                        console.error("Playback failed:", error);
-                        playPauseBtn.textContent = '▶';
                     });
                 }
                 updateNowPlayingUI();
@@ -356,23 +254,43 @@
                 if (!audio.src) {
                     playRandomEpisode();
                 } else {
-                    audio.play().then(() => playPauseBtn.textContent = '⏸');
+                    audio.play();
                 }
             } else {
                 audio.pause();
-                playPauseBtn.textContent = '▶';
             }
         };
 
+        const setSleepTimer = () => {
+            if (sleepTimerId) {
+                clearTimeout(sleepTimerId);
+                sleepTimerId = null;
+            }
+            const minutes = parseInt(sleepTimerSelect.value, 10);
+            if (minutes > 0) {
+                logMessage(`Sleep timer set for ${minutes} minutes.`);
+                sleepTimerId = setTimeout(() => {
+                    audio.pause();
+                    logMessage("Sleep timer ended. Playback paused.");
+                }, minutes * 60 * 1000);
+            } else {
+                logMessage("Sleep timer turned off.");
+            }
+        };
+        
+        audio.addEventListener('play', () => playPauseBtn.textContent = '⏸');
+        audio.addEventListener('pause', () => playPauseBtn.textContent = '▶');
+
         audio.addEventListener('loadedmetadata', () => {
-            // Start at a random point between 10% and 90% of the duration
             const randomStart = audio.duration * (0.1 + Math.random() * 0.8);
             audio.currentTime = randomStart;
         });
 
         audio.addEventListener('timeupdate', () => {
-            const progressPercent = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progressPercent}%`;
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+            }
         });
         
         progressContainer.addEventListener('click', (e) => {
@@ -385,12 +303,10 @@
         audio.addEventListener('ended', playRandomEpisode);
         audio.addEventListener('error', () => {
              logMessage(`Error loading audio for: ${currentEpisode?.title || 'unknown track'}. Skipping.`, 'error');
-             setTimeout(playRandomEpisode, 1000); // Wait a second before trying next
+             setTimeout(playRandomEpisode, 1000);
         });
         
-
         // --- UI UPDATE FUNCTIONS ---
-        
         const updateNowPlayingUI = () => {
             if (currentEpisode) {
                 nowPlayingTitle.textContent = currentEpisode.title;
@@ -406,9 +322,7 @@
         };
         
         const updateStationSelectors = () => {
-            const options = Object.keys(stations).map(id => 
-                `<option value="${id}">${stations[id].name}</option>`
-            ).join('');
+            const options = Object.keys(stations).map(id => `<option value="${id}">${stations[id].name}</option>`).join('');
             stationAddSelector.innerHTML = options;
             stationFilterSelector.innerHTML = options;
             stationFilterSelector.value = currentStationId;
@@ -416,9 +330,7 @@
         
         const updateLibraryView = () => {
             libraryTableBody.innerHTML = '';
-            const stationEpisodes = library.filter(ep => 
-                currentStationId === 'all' || ep.station === currentStationId
-            );
+            const stationEpisodes = library.filter(ep => currentStationId === 'all' || ep.station === currentStationId);
             
             if (stationEpisodes.length === 0) {
                 libraryTableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color: var(--secondary-text);">No content in this station.</td></tr>`;
@@ -438,44 +350,30 @@
         const updateStationManagementList = () => {
             stationList.innerHTML = '';
             Object.keys(stations).forEach(id => {
-                if (id === 'all') return; // Don't allow deleting 'All Content'
+                if (id === 'all') return;
                 const li = document.createElement('li');
-                li.innerHTML = `
-                    <span>${stations[id].name}</span>
-                    <button class="danger" data-id="${id}">Delete</button>
-                `;
+                li.innerHTML = `<span>${stations[id].name}</span><button class="danger" data-id="${id}">Delete</button>`;
                 stationList.appendChild(li);
             });
         };
 
         // --- CONTENT & STATION MANAGEMENT ---
-
         const generateId = () => `id_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
         const addEpisode = (episodeData) => {
             const stationId = stationAddSelector.value;
             const newEpisode = { id: generateId(), station: stationId, ...episodeData };
-
             library.push(newEpisode);
             stations['all'].episodes.push(newEpisode.id);
-            if (stationId !== 'all') {
-                stations[stationId].episodes.push(newEpisode.id);
-            }
+            if (stationId !== 'all') { stations[stationId].episodes.push(newEpisode.id); }
         };
         
         const deleteEpisode = (episodeId) => {
              const epIndex = library.findIndex(ep => ep.id === episodeId);
              if (epIndex === -1) return;
-             
              const episode = library[epIndex];
-             // Remove from all stations it belongs to
-             Object.values(stations).forEach(station => {
-                 station.episodes = station.episodes.filter(id => id !== episodeId);
-             });
-             
-             // Remove from main library
+             Object.values(stations).forEach(station => { station.episodes = station.episodes.filter(id => id !== episodeId); });
              library.splice(epIndex, 1);
-             
              logMessage(`Deleted episode: ${episode.title}`);
              updateAllUI();
         };
@@ -483,29 +381,17 @@
         const handleLocalFile = (event) => {
             const file = event.target.files[0];
             if (!file) return;
-
-            addEpisode({
-                title: file.name.replace(/\.[^/.]+$/, ""),
-                url: URL.createObjectURL(file),
-                type: "Local File",
-                podcast: "Local Upload"
-            });
+            addEpisode({ title: file.name.replace(/\.[^/.]+$/, ""), url: URL.createObjectURL(file), type: "Local File", podcast: "Local Upload" });
             logMessage(`Added local file: ${file.name}`);
             updateAllUI();
-            event.target.value = ''; // Reset file input
+            event.target.value = '';
         };
         
         const createStation = () => {
             const name = newStationInput.value.trim();
-            if (!name) {
-                logMessage("Station name cannot be empty.", "error");
-                return;
-            }
+            if (!name) { logMessage("Station name cannot be empty.", "error"); return; }
             const id = `station_${name.toLowerCase().replace(/\s+/g, '_')}_${generateId()}`;
-            if (Object.values(stations).some(s => s.name === name)) {
-                 logMessage(`Station "${name}" already exists.`, "error");
-                 return;
-            }
+            if (Object.values(stations).some(s => s.name === name)) { logMessage(`Station "${name}" already exists.`, "error"); return; }
             stations[id] = { name, episodes: [] };
             logMessage(`Created station: ${name}`);
             newStationInput.value = '';
@@ -516,84 +402,49 @@
             if (!stations[stationId] || stationId === 'all') return;
             const stationName = stations[stationId].name;
             delete stations[stationId];
-            
-            // Re-assign episodes that were only in this station to 'all'
-            // This logic is simplified: we just ensure the episodes still exist in the main library
-            // and `updateLibraryView` will correctly show them under 'All Content'.
-            if (currentStationId === stationId) {
-                currentStationId = 'all'; // Fallback to 'all' if current station is deleted
-            }
-            
+            if (currentStationId === stationId) { currentStationId = 'all'; }
             logMessage(`Deleted station: ${stationName}`);
             updateAllUI();
         };
 
-        // --- RSS FEED HANDLING ---
-        const CORS_PROXIES = [
-            'https://api.allorigins.win/raw?url=',
-            'https://cors.eu.org/',
-            'https://proxy.cors.sh/'
-        ];
+        // --- RSS FEED HANDLING (MODIFIED FOR PRIVATE PROXY) ---
 
         const fetchRssFeed = async (url) => {
-            logMessage(`Fetching RSS feed: ${url}`);
-            
-            // Special handling for Patreon to avoid CORS issues with tokens
-            if (url.includes('patreon.com')) {
-                logMessage('Patreon URL detected, attempting direct fetch.');
-                try {
-                    const response = await fetch(url, { headers: { 'x-cors-api-key': 'temp_f89a81235312f558a28e5863c0a59a68' } }); // For proxy.cors.sh if needed
-                    if (response.ok) return await response.text();
-                } catch (e) {
-                     logMessage('Direct Patreon fetch failed, trying with proxies...', 'error');
+            // Your private proxy URL is set here.
+            const PROXY_URL = 'https://cors-anywhere-sandy-delta.vercel.app/';
+
+            logMessage(`Fetching RSS feed via private proxy...`);
+            try {
+                // The proxy needs the feed URL appended to it.
+                const response = await fetch(`${PROXY_URL}${url}`);
+                if (response.ok) {
+                    logMessage('Proxy fetch successful!');
+                    return await response.text();
+                } else {
+                    throw new Error(`Proxy fetch failed with status: ${response.status}`);
                 }
+            } catch (error) {
+                logMessage(`Private proxy failed: ${error.message}`, 'error');
+                throw error; // Re-throw the error to be caught by handleAddRss
             }
-            
-            for (const proxy of CORS_PROXIES) {
-                try {
-                    logMessage(`Trying proxy: ${proxy.split('/')[2]}`);
-                    const response = await fetch(`${proxy}${encodeURIComponent(url)}`, { headers: { 'x-cors-api-key': 'temp_f89a81235312f558a28e5863c0a59a68' } });
-                    if (response.ok) {
-                        logMessage('Proxy successful!');
-                        return await response.text();
-                    }
-                } catch (error) {
-                    logMessage(`Proxy failed: ${proxy.split('/')[2]}`, 'error');
-                }
-            }
-            throw new Error("All CORS proxies failed.");
         };
 
         const parseRssAndAddEpisodes = (xmlString, feedUrl) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(xmlString, "application/xml");
-            const errorNode = doc.querySelector("parsererror");
-            if (errorNode) {
-                logMessage("Failed to parse RSS feed. Check format.", "error");
-                console.error("Parsing Error:", errorNode);
-                return;
-            }
+            if (doc.querySelector("parsererror")) { logMessage("Failed to parse RSS feed. Check format.", "error"); return; }
             
             const podcastTitle = doc.querySelector("channel > title, feed > title")?.textContent || "Unknown Podcast";
             const items = doc.querySelectorAll("item, entry");
             let count = 0;
 
             items.forEach((item, index) => {
-                if (index >= 20) return; // Limit to 20 recent episodes
-
+                if (index >= 20) return;
                 const title = item.querySelector("title")?.textContent || "Untitled Episode";
                 let audioUrl = item.querySelector("enclosure")?.getAttribute("url");
-                if (!audioUrl) {
-                     audioUrl = item.querySelector('media\\:content, content')?.getAttribute('url');
-                }
-
+                if (!audioUrl) { audioUrl = item.querySelector('media\\:content, content')?.getAttribute('url'); }
                 if (title && audioUrl) {
-                    addEpisode({
-                        title,
-                        url: audioUrl,
-                        type: feedUrl.includes('patreon.com') ? "Patreon RSS" : "RSS Feed",
-                        podcast: podcastTitle
-                    });
+                    addEpisode({ title, url: audioUrl, type: "RSS Feed", podcast: podcastTitle });
                     count++;
                 }
             });
@@ -603,19 +454,14 @@
 
         const handleAddRss = async () => {
             const url = rssUrlInput.value.trim();
-            if (!url) {
-                logMessage("Please enter an RSS feed URL.", "error");
-                return;
-            }
+            if (!url) { logMessage("Please enter an RSS feed URL.", "error"); return; }
             addRssBtn.disabled = true;
             addRssBtn.textContent = "Fetching...";
-
             try {
                 const xmlString = await fetchRssFeed(url);
                 parseRssAndAddEpisodes(xmlString, url);
             } catch (error) {
-                logMessage(error.message, "error");
-                console.error(error);
+                // The error is already logged by fetchRssFeed
             } finally {
                 addRssBtn.disabled = false;
                 addRssBtn.textContent = "Add Feed";
@@ -624,13 +470,12 @@
         };
         
         // --- HELPERS & EVENT LISTENERS SETUP ---
-        
         const logMessage = (message, type = 'info') => {
             const p = document.createElement('p');
             p.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
             p.style.color = type === 'error' ? 'var(--error-color)' : 'var(--secondary-text)';
             logMessages.appendChild(p);
-            logMessages.scrollTop = logMessages.scrollHeight; // Auto-scroll
+            logMessages.scrollTop = logMessages.scrollHeight;
         };
         
         const showTab = (tabId) => {
@@ -640,22 +485,14 @@
             document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
         };
         
-        // Dynamic event listener for delete buttons
         document.body.addEventListener('click', (e) => {
             const target = e.target;
-            // Episode delete
             if (target.matches('.library-table-container button.danger')) {
-                const id = target.getAttribute('data-id');
-                if (confirm('Are you sure you want to delete this episode?')) {
-                    deleteEpisode(id);
-                }
+                if (confirm('Are you sure you want to delete this episode?')) { deleteEpisode(target.getAttribute('data-id')); }
             }
-            // Station delete
             if (target.matches('#station-list button.danger')) {
-                const id = target.getAttribute('data-id');
-                if (confirm(`Are you sure you want to delete the "${stations[id].name}" station? Episodes will not be deleted.`)) {
-                    deleteStation(id);
-                }
+                const stationId = target.getAttribute('data-id');
+                if (confirm(`Are you sure you want to delete the "${stations[stationId].name}" station?`)) { deleteStation(stationId); }
             }
         });
 
@@ -666,17 +503,15 @@
         addRssBtn.addEventListener('click', handleAddRss);
         localFileInput.addEventListener('change', handleLocalFile);
         createStationBtn.addEventListener('click', createStation);
+        sleepTimerSelect.addEventListener('change', setSleepTimer);
         stationFilterSelector.addEventListener('change', (e) => {
             currentStationId = e.target.value;
             nowPlayingStation.textContent = `Station: ${stations[currentStationId].name}`;
             updateLibraryView();
         });
 
-        // Initial render
         updateAllUI();
-        logMessage("Welcome to Podcast Radio! Add content to get started.");
-
-        // Make showTab globally accessible for the inline onclick attributes
+        logMessage("Welcome to Podcast Radio! Your private RSS proxy is configured.");
         window.showTab = showTab;
     });
     </script>
