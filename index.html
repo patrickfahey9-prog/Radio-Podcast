@@ -407,28 +407,28 @@
             updateAllUI();
         };
 
-        // --- RSS FEED HANDLING (MODIFIED FOR PRIVATE PROXY) ---
+       // --- RSS FEED HANDLING (MODIFIED FOR NEW VERCEL PROXY) ---
 
-        const fetchRssFeed = async (url) => {
-            // Your private proxy URL is set here.
-            const PROXY_URL = 'https://cors-anywhere-sandy-delta.vercel.app/';
+ const fetchRssFeed = async (url) => {
+     // ⬇️ ⬇️ ⬇️ PASTE YOUR NEW PROXY URL HERE ⬇️ ⬇️ ⬇️
+     const PROXY_BASE_URL = 'https://my-cors-proxy-yourname.vercel.app/api/proxy'; 
+     // ⬆️ ⬆️ ⬆️ PASTE YOUR NEW PROXY URL HERE ⬆️ ⬆️ ⬆️
 
-            logMessage(`Fetching RSS feed via private proxy...`);
-            try {
-                // The proxy needs the feed URL appended to it.
-                const response = await fetch(`${PROXY_URL}${url}`);
-                if (response.ok) {
-                    logMessage('Proxy fetch successful!');
-                    return await response.text();
-                } else {
-                    throw new Error(`Proxy fetch failed with status: ${response.status}`);
-                }
-            } catch (error) {
-                logMessage(`Private proxy failed: ${error.message}`, 'error');
-                throw error; // Re-throw the error to be caught by handleAddRss
-            }
-        };
-
+     logMessage(`Fetching RSS feed via new private proxy...`);
+     try {
+         // The proxy needs the feed URL as a query parameter.
+         const response = await fetch(`${PROXY_BASE_URL}?url=${encodeURIComponent(url)}`);
+         if (response.ok) {
+             logMessage('Proxy fetch successful!');
+             return await response.text();
+         } else {
+             throw new Error(`Proxy fetch failed with status: ${response.status}`);
+         }
+     } catch (error) {
+         logMessage(`Private proxy failed: ${error.message}`, 'error');
+         throw error;
+     }
+ };
         const parseRssAndAddEpisodes = (xmlString, feedUrl) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(xmlString, "application/xml");
@@ -517,3 +517,4 @@
     </script>
 </body>
 </html>
+
